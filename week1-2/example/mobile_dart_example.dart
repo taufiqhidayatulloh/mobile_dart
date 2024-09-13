@@ -1,4 +1,4 @@
-import 'package:mobile_dart/dart_bagian1.dart';
+import '../lib/dart_bagian1.dart';
 
 void main() {
   var awesome = Awesome();

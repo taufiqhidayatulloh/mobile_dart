@@ -25,10 +25,10 @@ void main() {
   print(mahasiswa2.b); // Prints true
   print(mahasiswa2.$2); // Prints 'last'
 
-  mahasiswa2.a = 2241720207;
-  print(mahasiswa2.a); // Prints 2241720207
-  mahasiswa2[1] = "Ahmad Taufiq Hidayatulloh";
-  print(mahasiswa2[1]); // Prints "Ahmad Taufiq Hidayatulloh"
+  // mahasiswa2.a = 2241720207;
+  // print(mahasiswa2.a); // Prints 2241720207
+  // mahasiswa2[1] = "Ahmad Taufiq Hidayatulloh";
+  // print(mahasiswa2[1]); // Prints "Ahmad Taufiq Hidayatulloh"
 
 }
 

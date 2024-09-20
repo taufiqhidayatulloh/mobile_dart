@@ -460,43 +460,120 @@ last
 
 ### Soal 2
 
-Buatlah sebuah program yang dapat menampilkan bilangan prima dari angka 0 sampai 201 menggunakan Dart. Ketika bilangan prima ditemukan, maka tampilkan nama lengkap dan NIM Anda.
-
+Jelaskan yang dimaksud Functions dalam bahasa Dart!
 **Jawab**: 
+Functions dalam bahasa Dart adalah fungsi yang dapat dijalankan di dalam program. Fungsi dapat menerima input, melakukan suatu operasi, dan mengembalikan output.
 
-Code:
+### Soal 3
+
+Jelaskan jenis-jenis parameter di Functions beserta contoh sintaksnya!
+**Jawab**:
+Jenis-jenis parameter di Functions dapat dibagi menjadi 2 jenis yaitu positional parameters dan named parameters.<br>
+-> Positional parameters adalah parameter yang diisi dengan urutan.
+```
+void printInfo(String name, int age) {
+  print("Nama: $name, Umur: $age");
+}
+
+void main() {
+  printInfo("Ahmad Taufiq Hidayatulloh", 17);
+}
+```
+-> Named parameters adalah parameter yang diisi dengan nama.
+```
+void printInfo({String? name, int? age}) {
+  print("Nama: $name, Umur: $age");
+}
+
+void main() {
+  printInfo(name: "Ahmad Taufiq Hidayatulloh", age: 17);
+}
+```
+-> Optional parameters adalah parameter yang dapat diisi atau tidak.
+```
+void printInfo(String name, [int? age]) {
+  print("Nama: $name, Umur: $age");
+}
+
+void main() {
+  printInfo("Ahmad Taufiq Hidayatulloh"); // Tanpa age
+  printInfo("Ahmad Taufiq Hidayatulloh", 17); // Dengan age
+}
+```
+
+### Soal 4
+Jelaskan maksud Functions sebagai first-class objects beserta contoh sintaknya!
+
+**Jawab**:
+First-class objects adalah objek yang dapat dibuat dari fungsi.
+```
+void sayHello() {
+  print('Hello!');
+}
+
+void main() {
+  var greet = sayHello;  // Fungsi disimpan dalam variabel
+  greet();               // Memanggil fungsi melalui variabel
+
+  List<void Function()> functions = [sayHello];  // Disimpan dalam list
+}
+```
+
+### Soal 5
+Apa itu Anonymous Functions? Jelaskan dan berikan contohnya!
+
+**Jawab**:
+Anonymous Functions adalah fungsi yang tidak memiliki nama. Fungsi tersebut dapat dibuat dengan menggunakan tanda kurung kurawal ().
 ```
 void main() {
-  for (int number = 1; number <= 201; number++) {
-    if (isPrime(number)) print("$number. Nama: Ahmad Taufiq Hidayatulloh, NIM: 2241720207");
-  }
-}
-
-
-bool isPrime(int number) {
-  if (number < 2) return false;
-  for (int i = 2; i < number; i++) {
-    if (number % i == 0) {
-    return false;
-    }
-  }
-  return true;
+  var greet = () {
+    print('Hello!');
+  };
+  greet();
 }
 ```
 
-Output:
+### Soal 6
+Jelaskan perbedaan Lexical scope dan Lexical closures! Berikan contohnya!
+
+**Jawab**:
+- Lexical Scope engacu pada aturan bahwa variabel yang dideklarasikan di dalam suatu scopem hanya dapat diakses dalam scope tersebut dan scope yang lebih dalam.
 ```
-1. Nama: Ahmad Taufiq Hidayatulloh, NIM: 2241720207
-3. Nama: Ahmad Taufiq Hidayatulloh, NIM: 2241720207
-5. Nama: Ahmad Taufiq Hidayatulloh, NIM: 2241720207
-7. Nama: Ahmad Taufiq Hidayatulloh, NIM: 2241720207
-11. Nama: Ahmad Taufiq Hidayatulloh, NIM: 2241720207
-13. Nama: Ahmad Taufiq Hidayatulloh, NIM: 2241720207
-17. Nama: Ahmad Taufiq Hidayatulloh, NIM: 2241720207
-19. Nama: Ahmad Taufiq Hidayatulloh, NIM: 2241720207
-.
-.
-.
-199. Nama: Ahmad Taufiq Hidayatulloh, NIM: 2241720207
+void main() {
+  int outerVar = 10;
+  
+  void innerFunction() {
+    print(outerVar);  // Bisa mengakses variabel dari outer scope
+  }
+
+  innerFunction();
+}
+```
+- Lexical Closure Adalah kemampuan fungsi untuk "mengingat" variabel dari scope luar di mana fungsi tersebut didefinisikan, meskipun fungsi tersebut dijalankan di luar scope asalnya.
+```
+Function makeMultiplier(int factor) {
+  return (int value) {
+    return factor * value;  // Menyimpan 'factor' meski dipanggil di luar
+  };
+}
+
+void main() {
+  var multiplyBy2 = makeMultiplier(2);
+  print(multiplyBy2(5));  // Output: 10
+}
 ```
 
+### Soal 7
+Jelaskan dengan contoh cara membuat return multiple value di Functions!
+
+**Jawab**:
+Return multiple value di Functions dapat dilakukan dengan menggunakan tipe data Record. Tipe data Record adalah (Type, Type) yang berisi nilai yang dikembalikan dari fungsi.
+```
+(int, String) multipleReturn() {
+  return (1, "halo");
+}
+
+void main() {
+  print(multipleReturn()); // Output: (1, halo)
+}
+```

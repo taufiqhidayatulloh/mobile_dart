@@ -1,0 +1,16 @@
+/// Support for doing something awesome.
+///
+/// More dartdocs go here.
+library;
+
+export 'src/week4_base.dart';
+
+// TODO: Export any libraries intended for clients of this package.
+(int, String, String) multipleReturn() {
+  return (1, "halo", "hey");
+}
+
+void main() {
+  print(multipleReturn());
+}
+
